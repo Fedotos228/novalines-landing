@@ -7,7 +7,7 @@ import { LogoSizes } from './header.types';
 import useScreenSize from '@/hooks/useScreenSize';
 import { MenuIcon, XIcon } from 'lucide-react';
 import { naviagationItems } from '@/constants/data';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -32,6 +32,12 @@ export default function Header() {
         };
     };
 
+    const [activeItem, setActiveItem] = useState<string>('');
+
+    const handleItemClick = (item: string) => {
+        setActiveItem(item);
+    };
+
     return (
         <header className="fixed w-full top-0 py-10">
             <div className="container mx-auto flex px-4 items-center justify-between md:px-0 ">
@@ -48,7 +54,13 @@ export default function Header() {
                 {screenSizes.width > 767 && (
                     <nav className="flex gap-6 lg:gap-12">
                         {naviagationItems.map((item, index) => (
-                            <Link key={index} href={item.href} className={`${styles.navItem}`}>
+                            <Link
+                                key={index}
+                                href={item.href}
+                                onClick={() => handleItemClick(item.href)}
+                                className={`${styles.navItem} ${
+                                    item.href === activeItem ? styles.active : ''
+                                }`}>
                                 {item.title}
                             </Link>
                         ))}
@@ -61,7 +73,7 @@ export default function Header() {
                             menuOpen ? '!right-0' : ''
                         }`}>
                         <button onClick={() => setMenuOpen(false)}>
-                            <XIcon className="absolute w-7 h-7 top-5 right-5" />
+                            <XIcon className="absolute w-7 h-7 top-6 right-6" />
                         </button>
 
                         <div className="flex flex-col gap-6 p-6">
@@ -69,9 +81,12 @@ export default function Header() {
                                 <Link
                                     key={index}
                                     href={item.href}
-                                    onClick={() => setMenuOpen(false)}
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        handleItemClick(item.href);
+                                    }}
                                     className={`${styles.navItem} ${
-                                        item.href === window.location.pathname ? styles.active : ''
+                                        item.href === activeItem ? styles.active : ''
                                     }`}>
                                     {item.title}
                                 </Link>

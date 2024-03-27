@@ -11,6 +11,12 @@
         font-size: 18px;
     }
     &.active {
+        @media (max-width: 767px) {
+            color: #f37021;
+            &::after {
+                display: none;
+            }
+        }
         &::after {
             width: 100%;
         }

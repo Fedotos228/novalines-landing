@@ -39,7 +39,7 @@ export default function Header() {
     };
 
     return (
-        <header className="fixed w-full z-10 top-0 py-10">
+        <header className="fixed w-full z-30 top-0 py-10">
             <div className="container mx-auto flex px-4 items-center justify-between md:px-0 ">
                 <Link href="/">
                     <Image

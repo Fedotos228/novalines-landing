@@ -1,28 +1,30 @@
-import type { Metadata } from 'next';
-import { Onest } from 'next/font/google';
-import './globals.scss';
-import Providers from './providers';
-import dynamic from 'next/dynamic';
+import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+import { Onest } from 'next/font/google'
+import './globals.scss'
+import Providers from './providers'
 
-const Header = dynamic(() => import('@/components/layout/header/Header'), { ssr: false });
-const onest = Onest({ subsets: ['latin'], display: 'swap' });
+const Header = dynamic(() => import('@/components/layout/header/Header'), { ssr: false })
+const onest = Onest({ subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
     title: 'NOVA LINES OPERATIONS CENTER I Apply now',
     description: 'American Dream, Moldovan Location. Join our team as an Operations Coordinator!',
-};
+}
 
 export default function RootLayout({
     children,
 }: Readonly<{
-    children: React.ReactNode;
+    children: React.ReactNode
 }>) {
     return (
         <html lang="en">
             <body className={onest.className}>
-                <Header />
-                <Providers>{children}</Providers>
+                <Providers>
+                    <Header />
+                    {children}
+                </Providers>
             </body>
         </html>
-    );
+    )
 }

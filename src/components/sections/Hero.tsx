@@ -3,14 +3,13 @@
 import Button from '../ui/Button';
 import { ArrowRightIcon } from 'lucide-react';
 import BackgroundVideo from '../elements/BackgroundVideo';
-import useScrollPosition from '@/hooks/useScrollPosition';
 
 export default function Hero() {
     return (
         <section className="w-full h-[660px] relative" id="hero">
             <BackgroundVideo source="/assets/videos/nova.mp4" />
             <div className="flex items-center justify-center h-full flex-col gap-8 px-4">
-                <h1 className="text-white relative text-3xl sm:text-5xl font-bold leading-[130%] sm:leading-[120%] max-w-[600px] mx-auto text-center">
+                <h1 className="text-white text-center">
                     <span className="-left-20 md:block hidden -top-5 absolute font-medium">
                         {'/**'}
                     </span>

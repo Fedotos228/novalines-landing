@@ -1,5 +1,5 @@
 import { HeaderService } from '@/services/header/header.service'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 
 export const useNavigation = () => {
   return useQuery({

@@ -1,8 +1,10 @@
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Onest } from 'next/font/google'
 import './globals.scss'
 import Providers from './providers'
+
 
 const Header = dynamic(() => import('@/components/layout/header/Header'), { ssr: false })
 const onest = Onest({ subsets: ['latin'], display: 'swap', adjustFontFallback: false })
@@ -23,8 +25,11 @@ export default function RootLayout({
                 <Providers>
                     <Header />
                     {children}
+                    <ReactQueryDevtools initialIsOpen={false} />
                 </Providers>
             </body>
         </html>
     )
 }
+
+

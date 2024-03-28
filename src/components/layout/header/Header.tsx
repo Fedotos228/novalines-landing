@@ -4,7 +4,6 @@ import { useLogo } from '@/hooks/queries/useLogo'
 import useScreenSize from '@/hooks/useScreenSize'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 import { LogoSizes } from './header.types'
 import Navigation from './navigation/Navigation'
 
@@ -30,8 +29,6 @@ export default function Header() {
             height: 60,
         }
     }
-
-
 
     return (
         <header className="fixed w-full z-10 top-0 py-10">

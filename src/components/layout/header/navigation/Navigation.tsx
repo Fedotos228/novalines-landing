@@ -13,6 +13,11 @@ export default function Navigation() {
   const { data, isFetched } = useNavigation()
   const screenSizes = useScreenSize()
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
+  const [activeItem, setActiveItem] = useState<string>('')
+
+  const handleItemClick = (item: string) => {
+    setActiveItem(item)
+  }
 
   if (!isFetched) return null
 
@@ -21,7 +26,12 @@ export default function Navigation() {
       {screenSizes.width > 767 && (
         <nav className="flex gap-6 lg:gap-12">
           {data.map((item: INavItems) => (
-            <Link key={item.id} href={item.href} className={`${styles.navItem}`}>
+            <Link
+              key={item.id}
+              href={item.href}
+              className={`${styles.navItem} ${item.href === activeItem ? styles.active : ''}`}
+              onClick={() => handleItemClick(item.href)}
+            >
               {item.title}
             </Link>
           ))}

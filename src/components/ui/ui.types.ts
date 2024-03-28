@@ -23,5 +23,6 @@ export interface IButtonProps {
     variant?: 'link' | 'outline' | 'default' | 'primary' | 'secondary' | 'ghost';
     size?: 'default' | 'sm' | 'lg' | 'icon' | 'icon-sm' | 'icon-md';
     className?: string;
+    href?: string;
     [key: string]: any;
 }

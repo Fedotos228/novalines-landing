@@ -1,5 +1,6 @@
 import React from 'react';
 import { IButtonProps, IButtonStyles } from './ui.types';
+import Link from 'next/link';
 
 const buttonStyles: IButtonStyles = {
     default:
@@ -8,7 +9,7 @@ const buttonStyles: IButtonStyles = {
         default: 'bg-blaze-500 text-white shadow font-normal hover:bg-blaze-500/90',
         primary: 'bg-coral-600 text-white shadow font-normal hover:bg-coral-600/90',
         outline:
-            'border border-coral-600 bg-background shadow-sm hover:bg-coral-600 text-coral-600 hover:text-white',
+            'border border-coral-600 bg-transparent shadow-sm hover:bg-coral-600 text-coral-600 hover:text-white',
         secondary: 'bg-gray-200 text-foreground shadow-sm hover:bg-gray-200/60',
         ghost: 'hover:bg-gray-100 hover:text-foreground',
         link: 'underline-offset-4 text-gray-500 underline hover:text-blaze-600',
@@ -28,13 +29,21 @@ export default function Button({
     variant = 'default',
     size = 'default',
     className,
+    href,
     ...props
 }: IButtonProps) {
-    return (
+    return !href ? (
         <button
             className={`${buttonStyles.default} ${buttonStyles.variant[variant]} ${buttonStyles.size[size]} ${className}`}
             {...props}>
             {children}
         </button>
+    ) : (
+        <Link
+            href={href}
+            className={`${buttonStyles.default} ${buttonStyles.variant[variant]} ${buttonStyles.size[size]} ${className}`}
+            {...props}>
+            {children}
+        </Link>
     );
 }

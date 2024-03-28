@@ -21,6 +21,7 @@ const buttonStyles: IButtonStyles = {
         'icon-sm': 'h-[48px] w-[48px]',
         'icon-md': 'h-[60px] w-[60px]',
         icon: 'h-[72px] w-[72px]',
+        custom: '',
     },
 };
 

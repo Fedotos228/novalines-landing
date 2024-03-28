@@ -6,10 +6,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LogoSizes } from './header.types'
 import Navigation from './navigation/Navigation'
+import useScrollPosition from '@/hooks/useScrollPosition'
 
 export default function Header() {
     const { data, isFetched } = useLogo()
     const screenSizes = useScreenSize()
+    const scrollPosition = useScrollPosition()
 
     const logoSizes = (): LogoSizes => {
         if (screenSizes.width < 1024 && screenSizes.width >= 767) {
@@ -31,7 +33,11 @@ export default function Header() {
     }
 
     return (
-        <header className="fixed w-full z-10 top-0 py-10">
+        <header
+            className={`w-full z-30 top-0 ${scrollPosition > 120
+                ? 'animate-slideDown bg-white/15 py-5 backdrop-blur-md fixed'
+                : 'absolute py-10'
+                }`}>
             <div className="container mx-auto flex px-4 items-center justify-between md:px-0 ">
                 <Link href="/">
                     {

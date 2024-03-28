@@ -1,22 +1,22 @@
 'use client';
 
-import Image from 'next/image';
 import Button from '../ui/Button';
 import { ArrowRightIcon } from 'lucide-react';
+import BackgroundVideo from '../elements/BackgroundVideo';
 
 export default function Hero() {
     return (
-        <div className="w-full h-[660px]  relative" id="hero">
-            <Image
-                src="/assets/videos/video.jpg"
-                width={0}
-                height={0}
-                className="w-full h-full absolute -z-10 inset-0 object-cover"
-                alt="hero"
-            />
-            <div className="flex items-center justify-center h-full flex-col gap-8">
-                <h1 className="text-white text-3xl sm:text-5xl font-bold leading-[120%] max-w-[600px] mx-auto text-center">
+        <section className="w-full h-[660px] relative" id="hero">
+            <BackgroundVideo source="/assets/videos/nova.mp4" />
+            <div className="flex items-center justify-center h-full flex-col gap-8 px-4">
+                <h1 className="text-white text-center">
+                    <span className="-left-20 md:block hidden -top-5 absolute font-medium">
+                        {'/**'}
+                    </span>
                     We keep your business moving, so you can focus on what you do best.
+                    <span className="-right-20 md:block hidden -bottom-5 absolute font-medium">
+                        {'*/'}
+                    </span>
                 </h1>
 
                 <Button className="w-60">
@@ -24,6 +24,6 @@ export default function Hero() {
                     <ArrowRightIcon size={22} />
                 </Button>
             </div>
-        </div>
+        </section>
     );
 }

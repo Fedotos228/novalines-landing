@@ -1,3 +1,4 @@
+import Footer from '@/components/layout/footer/Footer'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
@@ -20,12 +21,13 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={onest.className}>
                 <Providers>
                     <Header />
                     {children}
                     <ReactQueryDevtools initialIsOpen={false} />
+                    <Footer />
                 </Providers>
             </body>
         </html>

@@ -3,6 +3,7 @@ import { Onest } from 'next/font/google';
 import './globals.scss';
 import Providers from './providers';
 import dynamic from 'next/dynamic';
+import Footer from '@/components/layout/footer/Footer';
 
 const Header = dynamic(() => import('@/components/layout/header/Header'), { ssr: false });
 const onest = Onest({ subsets: ['latin'], display: 'swap', adjustFontFallback: false });
@@ -22,6 +23,7 @@ export default function RootLayout({
             <body className={onest.className}>
                 <Header />
                 <Providers>{children}</Providers>
+                <Footer />
             </body>
         </html>
     );

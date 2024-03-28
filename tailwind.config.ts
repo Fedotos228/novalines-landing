@@ -39,8 +39,24 @@ const config: Config = {
                     '950': '#0c2724',
                 },
             },
+
+            animation: {
+                slideDown: 'slideDown 0.3s ease-in-out',
+            },
+
+            keyframes: {
+                slideDown: {
+                    from: {
+                        transform: 'translateY(-100%)',
+                    },
+                    to: {
+                        transform: 'translateY(0)',
+                    },
+                },
+            },
         },
     },
     plugins: [],
 };
+
 export default config;

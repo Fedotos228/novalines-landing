@@ -4,12 +4,16 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100% 1;
-        --foreground: 0 0% 13% 1;
+        --background: 0 100 1;
+        --foreground: 0 13 1;
     }
 
     .dark {
-        --background: 0 0% 13% 1;
-        --foreground: 0 0% 100% 1;
+        --background: 0 13 1;
+        --foreground: 0 100 1;
+    }
+
+    section {
+        @apply mb-20;
     }
 }

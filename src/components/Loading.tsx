@@ -1,6 +1,6 @@
 'use client'
 
-export default function Name() {
+export default function Loader() {
   return (
     <div>
       <h1>Loading...</h1>

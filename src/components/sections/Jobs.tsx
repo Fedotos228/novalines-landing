@@ -1,8 +1,12 @@
-import React from 'react';
-import SectionTitle from '../elements/SectionTitle';
-import Job from '../elements/Job';
+'use client'
+
+import { useJobs } from '@/hooks/queries/useJobs'
+import Job from '../elements/Job'
+import SectionTitle from '../elements/SectionTitle'
 
 export default function Jobs() {
+    const { data } = useJobs()
+
     return (
         <section>
             <div className="container mx-auto px-4">
@@ -23,5 +27,5 @@ export default function Jobs() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

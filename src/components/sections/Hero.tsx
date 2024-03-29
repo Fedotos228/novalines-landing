@@ -1,13 +1,13 @@
 'use client'
 
-import { useHero } from '@/hooks/queries/useHero'
+import { useHeader } from '@/hooks/queries/useHeader'
 import { ArrowRightIcon } from 'lucide-react'
 import Link from 'next/link'
 import BackgroundVideo from '../elements/BackgroundVideo'
 import Button from '../ui/Button'
 
 export default function Hero() {
-    const { data, isFetched } = useHero()
+    const { data, isFetched } = useHeader()
 
     if (!isFetched) return null
 
@@ -17,11 +17,11 @@ export default function Hero() {
             <div className="flex items-center justify-center h-full flex-col gap-8 px-4">
                 <h1 className="text-white text-center">
                     <span className="-left-20 md:block hidden -top-5 absolute font-medium">
-                        {'/**'}
+                        /**
                     </span>
                     {data?.title}
                     <span className="-right-20 md:block hidden -bottom-5 absolute font-medium">
-                        {'*/'}
+                        */
                     </span>
                 </h1>
 

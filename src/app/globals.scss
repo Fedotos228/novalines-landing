@@ -20,7 +20,7 @@
     }
 
     section {
-        @apply mb-10 sm:mb-20;
+        @apply mb-10 sm:mb-20 px-4 md:px-0;
     }
 
     h1 {
@@ -45,5 +45,12 @@
 
     h6 {
         @apply relative text-sm sm:text-base font-medium leading-[130%] sm:leading-[120%] max-w-[600px];
+    }
+
+    .jobs{
+        grid-template-columns: repeat(auto-fit, minmax(495px, 1fr));
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(auto-fit, minmax(335px, 1fr)) !important;
+        }
     }
 }

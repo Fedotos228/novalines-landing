@@ -12,7 +12,7 @@ const buttonStyles: IButtonStyles = {
             'border border-coral-600 bg-transparent shadow-sm hover:bg-coral-600 text-coral-600 hover:text-white',
         secondary: 'bg-gray-200 text-foreground shadow-sm hover:bg-gray-200/60',
         ghost: 'hover:bg-gray-100 hover:text-foreground',
-        link: 'underline-offset-4 text-gray-500 underline hover:text-blaze-600',
+        link: 'underline-offset-4 text-gray-500 underline font-normal hover:text-blaze-600',
     },
     size: {
         sm: 'h-10 rounded-md px-4 py-2 !text-md',
@@ -21,6 +21,7 @@ const buttonStyles: IButtonStyles = {
         'icon-sm': 'h-[48px] w-[48px]',
         'icon-md': 'h-[60px] w-[60px]',
         icon: 'h-[72px] w-[72px]',
+        custom: '',
     },
 };
 

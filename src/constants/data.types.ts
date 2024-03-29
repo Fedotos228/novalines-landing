@@ -5,3 +5,8 @@ export interface IJob {
     moreInfo: string;
     quickApply: string;
 }
+
+export interface IStatistics {
+    label: string;
+    value: number;
+}

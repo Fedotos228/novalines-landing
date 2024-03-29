@@ -1,4 +1,4 @@
-import { IJob } from './data.types';
+import { IJob, IStatistics } from './data.types';
 
 export const jobs: IJob[] = [
     {
@@ -44,5 +44,20 @@ export const jobs: IJob[] = [
         ],
         moreInfo: 'https://carriers.novalines.md/',
         quickApply: 'https://carriers.novalines.md/',
+    },
+];
+
+export const statistics: IStatistics[] = [
+    {
+        label: 'years of activity',
+        value: 10,
+    },
+    {
+        label: 'people in our Chișinău office',
+        value: 120,
+    },
+    {
+        label: 'trucks across US states',
+        value: 300,
     },
 ];

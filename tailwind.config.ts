@@ -16,6 +16,9 @@ const config: Config = {
                     DEFAULT: 'hsl(var(--secondary))',
                     foreground: 'hsl(var(--secondary-foreground))',
                 },
+                muted: {
+                    DEFAULT: 'hsl(var(--muted))',
+                },
                 blaze: {
                     '50': '#fff6ed',
                     '100': '#feecd6',
@@ -57,6 +60,9 @@ const config: Config = {
                         transform: 'translateY(0)',
                     },
                 },
+            },
+            screens: {
+                xs: '480px',
             },
         },
     },

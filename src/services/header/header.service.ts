@@ -1,11 +1,8 @@
 import { instance } from '@/api/api.intersepter'
-import { logoQuery, navQuery } from './header.helper'
+import { headerQuery } from './header.helper'
 
 export const HeaderService = {
-  async getLogo() {
-    return await instance.get(`/setting?${logoQuery}`)
+  async getHeader() {
+    return await instance.get(`/setting?${headerQuery}`)
   },
-  async getNav() {
-    return await instance.get(`/setting?${navQuery}`)
-  }
 }

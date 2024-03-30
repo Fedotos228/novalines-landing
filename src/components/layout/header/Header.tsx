@@ -1,15 +1,15 @@
 'use client'
 
-import { useLogo } from '@/hooks/queries/useLogo'
+import { useHeader } from '@/hooks/queries/useHeader'
 import useScreenSize from '@/hooks/useScreenSize'
+import useScrollPosition from '@/hooks/useScrollPosition'
 import Image from 'next/image'
 import Link from 'next/link'
 import { LogoSizes } from './header.types'
 import Navigation from './navigation/Navigation'
-import useScrollPosition from '@/hooks/useScrollPosition'
 
 export default function Header() {
-    const { data, isFetched } = useLogo()
+    const { data, isFetched } = useHeader()
     const screenSizes = useScreenSize()
     const scrollPosition = useScrollPosition()
 
@@ -32,6 +32,8 @@ export default function Header() {
         }
     }
 
+    if (!isFetched) return null
+
     return (
         <header
             className={`w-full z-30 top-0 ${scrollPosition > 120
@@ -43,14 +45,14 @@ export default function Header() {
                     {
                         isFetched &&
                         <Image
-                            src={process.env.NEXT_PUBLIC_STRAPI_BASE + data}
+                            src={process.env.NEXT_PUBLIC_STRAPI_BASE + data.logo.data.attributes.url}
                             alt='logo'
                             width={logoSizes().width}
                             height={logoSizes().height}
                         />
                     }
                 </Link>
-                <Navigation />
+                <Navigation navigation={data.navigation} />
             </div>
         </header>
     )

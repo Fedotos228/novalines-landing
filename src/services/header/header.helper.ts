@@ -1,11 +1,10 @@
 import qs from 'qs'
 
-export const logoQuery = qs.stringify({
-  populate: ['header.logo'],
-  encodeValuesOnly: true,
-})
-
-export const navQuery = qs.stringify({
-  populate: ['header.navigation'],
+export const headerQuery = qs.stringify({
+  populate: {
+    header: {
+      populate: ['header,logo', 'header,navigation']
+    }
+  },
   encodeValuesOnly: true,
 })

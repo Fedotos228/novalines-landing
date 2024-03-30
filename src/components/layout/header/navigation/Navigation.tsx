@@ -1,6 +1,5 @@
 'use client'
 
-import { useNavigation } from '@/hooks/queries/useNavigation'
 import useScreenSize from '@/hooks/useScreenSize'
 import { MenuIcon, XIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -8,9 +7,11 @@ import { useState } from 'react'
 import styles from '../header.module.scss'
 import { INavItems } from './navigation.types'
 
+interface Props {
+  navigation: INavItems[]
+}
 
-export default function Navigation() {
-  const { data, isFetched } = useNavigation()
+export default function Navigation({ navigation }: Props) {
   const screenSizes = useScreenSize()
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const [activeItem, setActiveItem] = useState<string>('')
@@ -19,13 +20,11 @@ export default function Navigation() {
     setActiveItem(item)
   }
 
-  if (!isFetched) return null
-
   return (
     <>
       {screenSizes.width > 767 && (
         <nav className="flex gap-6 lg:gap-12">
-          {data.map((item: INavItems) => (
+          {navigation.map((item: INavItems) => (
             <Link
               key={item.id}
               href={item.href}
@@ -47,7 +46,7 @@ export default function Navigation() {
           </button>
 
           <div className="flex flex-col gap-6 p-6">
-            {data.map((item: INavItems) => (
+            {navigation.map((item: INavItems) => (
               <Link
                 key={item.id}
                 href={item.href}

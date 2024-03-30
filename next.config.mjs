@@ -1,14 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
-      },
-    ],
-  }
-}
+    images: {
+        dangerouslyAllowSVG: true,
+        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+        domains: ['placehold.co', 'novalines-cms-dc8718f109d2.herokuapp.com'],
 
-export default nextConfig
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '1337',
+            },
+        ],
+    },
+};
+
+export default nextConfig;

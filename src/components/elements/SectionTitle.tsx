@@ -21,7 +21,7 @@ export default function SectionTitle({
 
     return (
         <div
-            className={`flex justify-between items-center gap-2 ${
+            className={`flex justify-between mb-6 items-center gap-2 ${
                 type === 'column' ? 'flex-col' : ''
             }`}>
             {type === 'row' ? <h2 className="text-foreground">{children}</h2> : <>{children}</>}

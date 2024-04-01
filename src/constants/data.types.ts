@@ -17,3 +17,7 @@ export interface IArticle {
     description: string;
     link: string;
 }
+
+export interface IGalleryProps {
+    image: string;
+}

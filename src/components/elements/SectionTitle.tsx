@@ -9,6 +9,7 @@ export default function SectionTitle({
     type = 'row',
     href,
     linkLabel,
+    titleOnly,
     ...props
 }: ISectionTitleProps) {
     const [isExternal, setIsExternal] = useState<boolean>(false);
@@ -21,12 +22,16 @@ export default function SectionTitle({
 
     return (
         <div
-            className={`flex justify-between mb-6 items-center gap-2 ${
-                type === 'column' ? 'flex-col' : ''
+            className={`flex mb-6 items-center gap-2 ${type === 'column' ? 'flex-col' : ''} ${
+                titleOnly ? 'justify-center' : 'justify-between'
             }`}>
-            {type === 'row' ? <h2 className="text-foreground">{children}</h2> : <>{children}</>}
+            {type === 'row' ? (
+                <h2 className={`text-foreground ${titleOnly ? 'text-center' : ''}`}>{children}</h2>
+            ) : (
+                <>{children}</>
+            )}
 
-            {href && (
+            {href && !titleOnly && (
                 <Button
                     href={href}
                     passHref={isExternal}

@@ -5,5 +5,6 @@ export interface ISectionTitleProps {
     linkLabel?: string;
     buttonVariant?: 'default' | 'primary' | 'outline' | 'secondary' | 'ghost' | 'link';
     buttonSize?: 'default' | 'sm' | 'lg' | 'icon' | 'icon-sm' | 'icon-md';
+    titleOnly?: boolean;
     [key: string]: any;
 }

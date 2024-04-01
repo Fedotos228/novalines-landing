@@ -1,4 +1,4 @@
-import { IArticle, IJob, IStatistics } from './data.types';
+import { IArticle, IGalleryProps, IJob, IStatistics } from './data.types';
 
 export const jobs: IJob[] = [
     {
@@ -85,5 +85,14 @@ export const articles: IArticle[] = [
         title: 'We Make Trucking Dispatch Easy and Stress-Free',
         description: 'Find out how we can help you grow your trucking business.',
         link: 'https://blog.novalines.md/',
+    },
+];
+
+export const gallerySlides: IGalleryProps[] = [
+    {
+        image: '/assets/images/sub.jpg',
+    },
+    {
+        image: '/assets/images/sub1.jpg',
     },
 ];

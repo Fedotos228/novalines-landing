@@ -13,7 +13,7 @@ export default function JobsList() {
             className="grid gap-7 jobs"
             style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(495px, 1fr))' }}>
             {jobs.map((job: IJob) => (
-                <Job key={job.slug} item={job} />
+                <Job key={job.attributes.slug} item={job} />
             ))}
         </div>
     )

@@ -1,13 +1,15 @@
 export interface IJob {
-    title: string
-    desc: string
-    createdAt: string
-    updatedAt: string
-    publishedAt: string
-    location: string
-    slug: string
-    requirements: IRequirements[]
-    departament: IDepartament[]
+    attributes: {
+        title: string
+        desc: string
+        createdAt: string
+        updatedAt: string
+        publishedAt: string
+        location: string
+        slug: string
+        requirements: IRequirements[]
+        departament: IDepartament[]
+    }
 }
 
 interface IDepartament {

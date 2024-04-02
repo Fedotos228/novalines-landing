@@ -43,7 +43,7 @@ function Counter({ count, speed = 500 }: { count: number; speed?: number }) {
     }, []);
 
     return (
-        <h2 className="text-5xl lg:text-6xl counter font-bold transition duration-300 ease-in-out">
+        <h2 className="text-5xl lg:text-6xl counter font-bold text-white transition duration-300 ease-in-out">
             {Intl.NumberFormat('en-EN').format(counter)}
         </h2>
     );

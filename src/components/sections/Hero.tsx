@@ -12,15 +12,17 @@ export default function Hero() {
 
     return (
         <section className="w-full h-[660px] relative" id="hero">
-            <BackgroundVideo source={process.env.NEXT_PUBLIC_STRAPI_BASE + data?.video?.data.attributes.url} />
+            <BackgroundVideo
+                source={process.env.NEXT_PUBLIC_STRAPI_BASE + data?.video?.data.attributes.url}
+            />
             <div className="flex items-center justify-center h-full flex-col gap-8 px-4">
                 <h1 className="text-white text-center">
                     <span className="-left-20 md:block hidden -top-5 absolute font-medium">
-                        /**
+                        {'/**'}
                     </span>
                     {data?.title}
                     <span className="-right-20 md:block hidden -bottom-5 absolute font-medium">
-                        */
+                        {'*/'}
                     </span>
                 </h1>
 

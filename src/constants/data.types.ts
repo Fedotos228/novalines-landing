@@ -29,5 +29,12 @@ interface IRequirements {
 
 export interface IStatistics {
     label: string
-    value: number
+    value: number | string
+}
+
+export interface IArticle {
+    thumbnail?: string | undefined
+    title: string
+    description: string
+    link: string
 }

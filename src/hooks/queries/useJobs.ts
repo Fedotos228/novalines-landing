@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 export const useJobs = () => {
   return useQuery({
     queryKey: ['job'],
-    queryFn: LandingService.getJobs
+    queryFn: LandingService.getJobs,
+    select: data => data.data.data
   })
 }

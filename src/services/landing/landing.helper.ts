@@ -13,8 +13,8 @@ export const heroQuery = qs.stringify({
 
 export const jobsQuery = qs.stringify({
   populate: '*',
-  pagination: [
-    { pageSize: 4 }
-  ]
+  pagination: {
+    pageSize: 4
+  }
 })
 

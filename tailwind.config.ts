@@ -12,6 +12,13 @@ const config: Config = {
             colors: {
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
+                secondary: {
+                    DEFAULT: 'hsl(var(--secondary))',
+                    foreground: 'hsl(var(--secondary-foreground))',
+                },
+                muted: {
+                    DEFAULT: 'hsl(var(--muted))',
+                },
                 blaze: {
                     '50': '#fff6ed',
                     '100': '#feecd6',
@@ -39,8 +46,27 @@ const config: Config = {
                     '950': '#0c2724',
                 },
             },
+
+            animation: {
+                slideDown: 'slideDown 0.3s ease-in-out',
+            },
+
+            keyframes: {
+                slideDown: {
+                    from: {
+                        transform: 'translateY(-100%)',
+                    },
+                    to: {
+                        transform: 'translateY(0)',
+                    },
+                },
+            },
+            screens: {
+                xs: '480px',
+            },
         },
     },
     plugins: [],
 };
+
 export default config;

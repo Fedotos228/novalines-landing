@@ -44,9 +44,7 @@ export default function Header() {
                 <Link href="/">
                     {isFetched && (
                         <Image
-                            src={
-                                process.env.NEXT_PUBLIC_STRAPI_BASE + header.logo.data.attributes.url
-                            }
+                            src={process.env.NEXT_PUBLIC_STRAPI_BASE + header.logo.data.attributes.url}
                             alt="logo"
                             width={logoSizes().width}
                             height={logoSizes().height}

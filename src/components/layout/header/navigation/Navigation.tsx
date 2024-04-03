@@ -1,24 +1,25 @@
-'use client';
+'use client'
 
-import useScreenSize from '@/hooks/useScreenSize';
-import { MenuIcon, XIcon } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
-import styles from '../header.module.scss';
-import { INavItems } from './navigation.types';
+import Language from '@/components/elements/Language'
+import useScreenSize from '@/hooks/useScreenSize'
+import { MenuIcon, XIcon } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
+import styles from '../header.module.scss'
+import { INavItems } from './navigation.types'
 
 interface Props {
-    navigation: INavItems[];
+    navigation: INavItems[]
 }
 
 export default function Navigation({ navigation }: Props) {
-    const screenSizes = useScreenSize();
-    const [menuOpen, setMenuOpen] = useState<boolean>(false);
-    const [activeItem, setActiveItem] = useState<string>('');
+    const screenSizes = useScreenSize()
+    const [menuOpen, setMenuOpen] = useState<boolean>(false)
+    const [activeItem, setActiveItem] = useState<string>('')
 
     const handleItemClick = (item: string) => {
-        setActiveItem(item);
-    };
+        setActiveItem(item)
+    }
 
     return (
         <>
@@ -28,9 +29,8 @@ export default function Navigation({ navigation }: Props) {
                         <Link
                             key={item.id}
                             href={item.href || '/'}
-                            className={`${styles.navItem} ${
-                                item.href === activeItem ? styles.active : ''
-                            }`}
+                            className={`${styles.navItem} ${item.href === activeItem ? styles.active : ''
+                                }`}
                             onClick={() => handleItemClick(item.href)}>
                             {item.title}
                         </Link>
@@ -40,9 +40,8 @@ export default function Navigation({ navigation }: Props) {
 
             {screenSizes.width <= 767 && (
                 <nav
-                    className={`fixed top-0 -right-96 bottom-0 max-w-96 w-full bg-white transition-all duration-300 ${
-                        menuOpen ? '!right-0' : ''
-                    }`}>
+                    className={`fixed top-0 -right-96 bottom-0 max-w-96 w-full bg-white transition-all duration-300 ${menuOpen ? '!right-0' : ''
+                        }`}>
                     <button onClick={() => setMenuOpen(false)}>
                         <XIcon className="absolute w-7 h-7 top-5 right-5" />
                     </button>
@@ -53,9 +52,8 @@ export default function Navigation({ navigation }: Props) {
                                 key={item.id}
                                 href={item.href || '/'}
                                 onClick={() => setMenuOpen(false)}
-                                className={`${styles.navItem} ${
-                                    item.href === window.location.pathname ? styles.active : ''
-                                }`}>
+                                className={`${styles.navItem} ${item.href === window.location.pathname ? styles.active : ''
+                                    }`}>
                                 {item.title}
                             </Link>
                         ))}
@@ -64,8 +62,7 @@ export default function Navigation({ navigation }: Props) {
             )}
 
             <div className="flex gap-3 lg:gap-4">
-                <button className="text-white/50">Ro</button>
-                <button className="text-white">En</button>
+                <Language />
                 {screenSizes.width <= 767 && (
                     <button onClick={() => setMenuOpen(true)}>
                         <MenuIcon className="text-white w-8 h-8 ml-2 cursor-pointer" />
@@ -73,5 +70,5 @@ export default function Navigation({ navigation }: Props) {
                 )}
             </div>
         </>
-    );
+    )
 }
